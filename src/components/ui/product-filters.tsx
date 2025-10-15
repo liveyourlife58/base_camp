@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, X, ChevronDown } from 'lucide-react';
 import { Button } from './button';
 
@@ -81,9 +81,9 @@ export function ProductFilters({ onFiltersChange, categories, brands }: ProductF
   };
 
   const activeFiltersCount = [
-    ...filters.category,
-    ...filters.brand,
-    ...filters.tags,
+    filters.category.length,
+    filters.brand.length,
+    filters.tags.length,
     filters.inStock !== null ? 1 : 0,
     filters.rating !== null ? 1 : 0,
     filters.priceRange[0] !== 0 || filters.priceRange[1] !== 10000 ? 1 : 0

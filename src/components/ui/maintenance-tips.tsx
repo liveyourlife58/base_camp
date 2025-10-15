@@ -145,14 +145,14 @@ export function MaintenanceTips() {
             
             <div className="space-y-3">
               {category.tips.map((tip, tipIndex) => {
-                const ImportanceIcon = importanceIcons[tip.importance];
+                const ImportanceIcon = importanceIcons[tip.importance as keyof typeof importanceIcons];
                 return (
                   <motion.div
                     key={tip.title}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (categoryIndex * 0.1) + (tipIndex * 0.05) }}
-                    className={`p-3 rounded-lg border ${importanceColors[tip.importance]}`}
+                    className={`p-3 rounded-lg border ${importanceColors[tip.importance as keyof typeof importanceColors]}`}
                   >
                     <div className="flex items-start gap-3">
                       <ImportanceIcon className="h-4 w-4 mt-0.5 flex-shrink-0" />

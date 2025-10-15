@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Shield, Zap, Target, Heart, Star, Sparkles, Award, Truck, Lock, HeartHandshake } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Heart, Star, Sparkles, Award, Truck, Lock, HeartHandshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ui/product-card';
 import { MaintenanceTips } from '@/components/ui/maintenance-tips';
@@ -382,7 +382,7 @@ export default function Home() {
                   Wounded Warrior Project Partnership
                 </h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  We're proud to donate 5% of all sales to Wounded Warrior Project, supporting veterans with physical and mental injuries. Your purchase directly helps provide:
+                  We&apos;re proud to donate 5% of all sales to Wounded Warrior Project, supporting veterans with physical and mental injuries. Your purchase directly helps provide:
                 </p>
                 <ul className="space-y-2 text-gray-300 mb-6">
                   <li className="flex items-center gap-2">
