@@ -20,7 +20,13 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="group bg-gradient-to-br from-od-green-800 via-od-green-700 to-od-green-800 border border-od-green-600/50 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm hover:from-od-green-700 hover:via-od-green-600 hover:to-od-green-700"
+      className="group rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden relative z-10"
+      style={{
+        background: 'linear-gradient(135deg, rgba(22, 23, 22, 0.8), rgba(35, 44, 35, 0.7), rgba(22, 23, 22, 0.8))',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)'
+      }}
     >
       <Link href={`/product/${product.id}`}>
         <div className="relative aspect-square overflow-hidden">
