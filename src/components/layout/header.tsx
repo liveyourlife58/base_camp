@@ -4,8 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingCart, Search, User } from 'lucide-react';
+import { useCart } from '@/contexts/cart-context';
 
 const navigation = [
+  { name: 'Products', href: '/products' },
   { name: 'Camping', href: '/category/camping' },
   { name: 'Survival', href: '/category/survival' },
   { name: 'Combat', href: '/category/combat' },
@@ -15,6 +17,7 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { itemCount, setIsOpen } = useCart();
 
   return (
     <header className="bg-gradient-to-r from-od-green-800 via-od-green-700 to-od-green-800 border-b border-od-green-600/50 shadow-lg sticky top-0 z-50 backdrop-blur-md">
@@ -64,12 +67,15 @@ export default function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsOpen(true)}
               className="relative p-2 text-od-green-50 hover:text-od-tan-300 transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-4 w-4 bg-od-tan-500 text-od-green-800 text-xs rounded-full flex items-center justify-center">
-                0
-              </span>
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 bg-od-tan-500 text-od-green-800 text-xs rounded-full flex items-center justify-center font-bold">
+                  {itemCount}
+                </span>
+              )}
             </motion.button>
 
             {/* User */}
